@@ -1,0 +1,246 @@
+\section{Classes}
+
+\begin{frame}{What are classes?}
+\pause
+\begin{block}{Class (definition)}
+    A class is a blueprint for a type of object, defining it's \textbf{data attributes} and \textbf{methods}.
+\end{block}
+\pause
+\begin{alertblock}{Terminology}
+    We call an object from a certain class, an \textbf{instance} of that class. E.g. "OOP" is an instance of the class str (string).
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Why do we use classes?}
+    \pause
+    \begin{itemize}
+        \pause
+        \item Python only gives us a limited amount of types, integers, floats, strings, etcetera. 
+        \pause
+        \item With classes we can extend this and model anything we want!
+        \pause
+        \begin{itemize}
+            \item Like students, bank accounts, courses, shopping cart.
+        \end{itemize}
+        \pause
+        \item Encapsulation (later)
+        \pause
+        \item Seperation of Concerns (later)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What do classes consist of?}
+    \begin{itemize}
+        \pause
+        \item Methods (behaviour)
+        \pause
+        \item Data Attributes (properties/fields)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What do classes consist of?}
+    \pause
+    Data Attributes:
+    \begin{itemize}
+        \pause
+        \item Variables that belong to a single object
+        \pause
+        \item For example a person can have the following data variables (i.e. data attributes) which we would like to store:
+        \pause
+        \begin{itemize}
+            \item first name (string)
+            \item last name (string)
+            \item age (int)
+        \end{itemize}
+        \pause
+        \item These variables can be of any type! (Strings, integers, lists, and also objects of other classes)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Methods}
+\begin{itemize}
+    \item You have already seen a lot of methods
+    \pause
+    \item For example, for a person we could have:
+    \begin{itemize}
+        \pause
+        \item Speak
+        \item Dance
+        \item Study
+    \end{itemize}
+    \pause
+    \item Every class needs one special method:
+    \begin{itemize}
+        \pause
+        \item \textbf{The constructor}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What is a constructor?}
+\pause
+\begin{block}{Constructor}
+In Python, a \textbf{constructor} is a special method called when an object is created. It initializes all data attributes.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The constructor}
+To create objects of a certain class:
+\pause
+\begin{minted}{python}
+my_string = "CognAC"  # Class str
+my_int = 18  # Class int
+my_list = [18, 2003]  # Class list
+\end{minted}
+\pause
+\textbf{But what if we have a new type of object of a new class, for example a Fraction class}
+\pause
+\textit{We use the constructor!}
+\end{frame}
+
+\begin{frame}[fragile]{The constructor}
+\begin{minted}{python}
+# We import the class from the module 'fractions'
+# Classes always start with a capital lette
+from fractions import Fraction
+\end{minted}{python}
+\pause
+\begin{minted}{python}
+# We call the constructor by 'calling the class',
+# this creates a new object for us!
+# The constructor takes two arguments:
+# numerator and denominator (in this case 8 and 10)
+my_fraction = Fraction(8, 10)  # Fraction of 8/10th
+\end{minted}
+\end{frame}
+
+\begin{frame}{Making our own class!}
+\begin{itemize}
+    \pause
+    \item We now have all ingredients to create our own classes!
+    \pause
+    \item Let's say we want to model a person in python
+    \pause
+    \item We want it to have a \textit{first name, last name, age} (data attributes)
+    \pause
+    \item And we want a person to 'speak' i.e. print some text (methods)
+    \pause
+    \item We create our own class \textbf{Person}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Creating our Person class}
+\begin{minted}[fontsize=\footnotesize, breaklines]{python}
+class Person():
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize, breaklines]{python}
+    
+    # The constructor
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name  # Data attribute
+        self.last_name = last_name  # Data attribute
+        self.age = age  # Data attribute
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize, breaklines]{python}
+
+    # Method
+    def speak(self):
+        print(f"Hey, my name is {self.first_name}")
+\end{minted}
+\end{frame}
+
+\begin{frame}{The 'self' parameter}
+\begin{itemize}
+    \pause
+    \item The first parameter in a constructor definition is always named \textbf{self}. 
+    \pause
+    \item This refers to the object itself, and is necessary for declaring any data attributes attached to the object.
+    \pause
+    \item It is automatically filled in by the interpreter with the object it is called on.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Creating our Person class}
+\begin{minted}[fontsize=\footnotesize, breaklines]{python}
+class Person():
+    
+    # The constructor
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name  # Data attribute
+        self.last_name = last_name  # Data attribute
+        self.age = age  # Data attribute
+
+    # Method
+    def speak(self):
+        print(f"Hey, my name is {self.first_name}")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Data Attributes}
+Accessing a data attribute:
+\pause
+\begin{minted}{python}
+person = Person("Daan", "Wichmann", "Secret")
+\end{minted}
+\pause
+\begin{minted}{python}
+print(person.first_name)
+>>> "Daan"
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Data Attributes}
+Re-assigning an attribute:
+\pause
+\begin{minted}{python}
+person = Person("Daan", "Wichmann", "Secret")
+\end{minted}
+\pause
+\begin{minted}{python}
+person.first_name = "Damai"
+print(person.first_name)
+>>> "Damai"
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Our beautiful class}
+\begin{minted}{python}
+class Person():
+    
+    # The constructor
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name  # Attribute
+        self.last_name = last_name  # Attribute
+        self.age = age  # Attribute
+
+    # Method
+    def speak(self):
+        print(f"Hey, my name is {self.first_name}")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Calling our method}
+\pause
+\begin{minted}{python}
+person = Person("Daan", "Wichmann", "Secret")
+\end{minted}
+\pause
+\begin{minted}{python}
+person.speak()
+>>> Hey, my name is Daan
+# Note that we don't fulfill the 'self' 
+# parameter, but the interpreter
+# does it automatically for us.
+\end{minted}
+\end{frame}
+
+\begin{frame}{Why?}
+Why do we want to use classes?
+\begin{itemize}
+    \item If we want to to represent something that is not already in Python
+    \item To make collaboration easier
+    \item If we want to 'group together' functionality
+\end{itemize}
+\end{frame}

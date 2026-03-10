@@ -1,0 +1,73 @@
+% Full instructions available at:
+% https://github.com/elauksap/focus-beamertheme
+
+\documentclass{beamer}
+\usetheme{focus}
+
+\title{CoPL \\ Object Oriented Programming}
+\subtitle{Crashcourse}
+\author{Daan Wichmann}
+% \titlegraphic{\includegraphics[scale=1.25]{focuslogo.pdf}}
+\institute{Radboud University}
+\date{10 03 2026}
+
+\usepackage{minted}
+\usepackage{emoji}
+
+\begin{document}
+    \begin{frame}
+        \maketitle 
+    \end{frame}
+
+    \begin{frame}{Before we start}
+        \begin{itemize}
+            \item Lot's of topics to cover, limited time per topic
+            \item Assuming basic Python knowledge from Programming 1 \& Programming 2.
+        \end{itemize}
+    \end{frame}
+    
+    \input{Sections/objects}
+
+    \input{Sections/classes}
+
+    \input{Sections/references}
+
+    \begin{frame}[plain]
+        Part 1 of 3 done! Break?
+    \end{frame}
+
+    \input{Sections/inheritance}
+
+    \input{Sections/overriding}
+
+    \input{Sections/overloading}
+
+    \begin{frame}[plain]
+        Part 2 of 3 done! Break?
+    \end{frame}
+
+    \input{Sections/access_modifiers}
+
+    \input{Sections/encapsulation}
+
+    \input{Sections/seperation_of_concerns}
+
+    \input{Sections/class attributes}
+    
+    \begin{frame}[focus]
+        That is it!
+        
+        (make sure to still look at the material!)
+    \end{frame}
+
+    \begin{frame}{NB}
+        I did not cover \textbf{class attributes}. Please study this in your own time, because it is still fairly important! (Part 9.5 of the material)
+    \end{frame}
+    
+    \begin{frame}{Extra info}
+        \usebeamercolor[fg]{normal text}
+        If you are interested in programming, I highly recommend following: Object Orientend Programming (NWI-IPI005)
+        \vfill
+        You can find these slides and the code from the presentation on my github: \texttt{https://github.com/D21W12}
+    \end{frame}
+\end{document}

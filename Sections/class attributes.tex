@@ -1,0 +1,80 @@
+\section{Class attributes}
+
+\begin{frame}{What are class attributes?}
+\pause
+\begin{block}{Class attributes (definition)}
+    Class attributes are \textbf{data attributes} or \textbf{methods}, that do not belong to instances of a class, but to the class itself.
+\end{block}
+\pause
+\begin{itemize}
+    \item Class data attributes
+    \pause
+    \item Class methods
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{An example...}
+\pause
+\begin{minted}{python}
+class Person():
+    ...
+
+    # An oridinary method :o
+    def greet(self):
+        print("Hey!")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Hmmmmm...}
+\pause
+\begin{minted}{python}
+person1 = Person("Daan", "Wichmann", 19)
+\end{minted}
+\pause
+\begin{minted}{python}
+person2 = Person("Ella", "Kemperman", 19)
+\end{minted}
+\pause
+\begin{minted}{python}
+person1.greet()
+>>> "Hey!"
+\end{minted}
+\pause
+\begin{minted}{python}
+person2.greet()
+>>> "Hey!"
+\end{minted}
+\pause
+\begin{itemize}
+    \item Different objects, same output!
+    \pause
+    \item We can do this better!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Wow it's a classmethod!}
+\pause
+\begin{minted}{python}
+class Person():
+    ...
+
+    @classmethod # Only the decorator is added!
+    def greet(cls):  # Note the first parameter!
+        print("Hey!")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Same for data attributes!}
+\pause
+\begin{itemize}
+    \item If the values are the same for every object, we can make it a class data attribute!
+\end{itemize}
+\begin{minted}{python}
+class Person():
+    greeting = "Hey! # Class data attribute
+
+    @classmethod
+    def greet(cls):
+        print(cls.greeting)
+\end{minted}
+\end{frame}

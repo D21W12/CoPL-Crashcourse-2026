@@ -1,0 +1,102 @@
+\section{Operator overloading}
+
+\begin{frame}{Operator overloading}
+    \begin{block}{Operator overloading}
+        Operator overloading refers to a single operator's capacity to perform several operations based on the class (type) of operands
+    \end{block}
+\end{frame}
+
+\begin{frame}{Operator overloading}
+    Now in human terms:
+    \begin{itemize}
+        \pause
+        \item Operators like addition (+), equals (==), and greater than (>) can perform certain actions based on their type/class.
+        \pause
+        \item Other operator are:
+        \begin{itemize}
+            \item +, -, /, //, \%, ==, in, >, <, >=, <=, !=, and more! 
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Operator overloading}
+\begin{itemize}
+    \item Let's look at some examples
+    \pause
+    \item Addition:
+    \begin{itemize}
+        \pause
+        \item 5 + 3 = 8 (int)
+        \pause
+        \item "Cogn" + "AC" = "CognAC" (str)
+    \end{itemize}
+    \pause
+    \item Greater than:
+    \begin{itemize}
+        \pause
+        \item 5 > 3 = True (int)
+        \pause
+        \item Person(...) > Person(...) = ???
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Operator overloading}
+\begin{itemize}
+    \item We can define how these operators should behalve in our classes!
+    \pause
+    \item We use so called double underscore methods (dunder methods, you may forget that name).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What we want}
+\begin{itemize}
+    \item Consider two objects of our person class: person1 and person2.
+    \pause
+    \item We want person1 > person2 = True, iff person1 is older than person2.
+    \pause
+    \item Let's \textbf{overload} the \textit{greater than} operator in our class Person.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Let's overload}
+\begin{minted}[fontsize=\footnotesize]{python}
+class Person():
+    ...
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+    def __gt__(self, other):  # Note the parameters
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+        return self.age > other.age
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Testing never ends}
+Let's test again
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+person1 = Person("Daan", "Wichmann", 19)
+person2 = Person("Damai", "Jiworo", 18)
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+print(person1 > person2)  # What will this return?
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+>>> True
+\end{minted}
+\end{frame}
+
+\begin{frame}{Why is 'overloading'}
+    Why is it called, overloading and not overriding?
+    \begin{itemize}
+        \pause
+        \item We are not overriding operators, because they should still behave the same for integers, strings, etc.
+        \pause
+        \item We are 'loading' the operator  with functionality for more classes, i.e. \textbf{overloading operators}.
+    \end{itemize}
+\end{frame}

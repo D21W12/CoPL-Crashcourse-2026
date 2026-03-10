@@ -1,0 +1,95 @@
+\section{Method overriding}
+
+\begin{frame}{Overriding}
+\begin{itemize}
+    \item What if we want Student's \textit{speak()} to do something different from Person's \textit{speak()}?
+    \item We can \textbf{override} the method! (\textbf{Method overriding})
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Our beautiful class again}
+\begin{minted}{python}
+class Person():
+    
+    # The constructor
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name  # Attribute
+        self.last_name = last_name  # Attribute
+        self.age = age  # Attribute
+
+    # Method
+    def speak(self):
+        print(f"Hey, my name is {self.first_name}")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{And its subclass}
+\begin{minted}[fontsize=\footnotesize]{Python}
+class Student(Person):
+
+    # The constructor
+    def __init__(self, first_name, last_name, age, s_number):
+    
+        # Calling the constructor of base class
+        super().__init__(first_name, last_name, age)
+        self.s_number = s_number
+
+    # Method
+    def study(self):
+        print(f"Student {self.s_number} is studying!")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Currently}
+
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+student = Student("Daan", "Wichmann", "secret", "secret")
+\end{minted}
+
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+student.speak()
+>>> Hey, my name is Daan
+\end{minted}
+
+\end{frame}
+
+\begin{frame}{Overriding}
+\begin{itemize}
+    \item We want student to also mention their s-number when speaking!
+    \item \textbf{Lets override speak()}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Overriding...}
+\begin{minted}[fontsize=\footnotesize, breaklines]{Python}
+class Student(Person):
+
+    # The constructor
+    def __init__(self, first_name, last_name, age, s_number):
+    
+        # Calling the constructor of base class
+        super().__init__(first_name, last_name, age)
+        self.s_number = s_number
+
+    # Method
+    def study(self):
+        print(f"Student {self.s_number} is studying!")
+
+    def speak(self):
+        print(f"Hey, my name is {self.first_name} and my s-number is {self.s_number}")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{And now}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+student = Student("Daan", "Wichmann", "secret", "secret")
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+student.speak()
+>>> Hey, my name is Daan and my s-number is secret
+\end{minted}
+\end{frame}

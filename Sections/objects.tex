@@ -1,0 +1,88 @@
+\section{Objects \& Methods}
+\begin{frame}{What are objects?}
+    \pause
+    \begin{block}{Objects}
+        \textbf{Objects} are Python's abstraction for data. All data in a Python program is represented by objects or by relations between objects.
+    \end{block}
+\end{frame}
+
+\begin{frame}{What are objects?}
+\pause
+    The following are objects in Python:
+    \begin{itemize}
+        \pause
+        \item Integers (e.g. 127) \pause
+        \item Strings (e.g. "CognAC")\pause
+        \item Lists (e.g. ["Damai", "Daan", "Ella"])\pause
+        \item \textbf{Every value in Python!}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What are methods?}
+    \pause
+    \begin{block}{Methods}
+        \textbf{Methods} are functions that belong to a certain \textbf{type of object}.
+    \end{block}
+    \begin{itemize}
+        \pause
+        \item You call methods on an object.
+        \pause
+        \item Methods that belong to a certain type of object, can not be called on another type of object
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{What are methods?}
+You have already seen a lot of methods!
+\pause
+\begin{minted}{python}
+my_list = [1, 2, 3]
+\end{minted} 
+\pause
+\begin{minted}{python}
+my_list.append(4)
+\end{minted}
+\pause
+\begin{minted}{python}
+print(my_list)
+>>> [1, 2, 3, 4]
+\end{minted} 
+\pause
+\textbf{append} is a \textbf{method} of {lists}.
+\end{frame}
+
+\begin{frame}[fragile]{What are methods? Another example.}
+\pause
+\begin{minted}{python}
+my_string = "daan"  # Note: all lowercase
+\end{minted} 
+\pause
+\begin{minted}{python}
+my_capitalized_string = my_string.capitalize()
+\end{minted}
+\pause
+\begin{minted}{python}
+print(my_capitalized_string)
+>>> "Daan"
+\end{minted} 
+\pause
+\textbf{capitalize} is a \textbf{method} of {strings}.
+\end{frame}
+
+\begin{frame}[fragile]{What are methods?}
+\pause
+\begin{minted}{python}
+my_list = [1, 2, 3]
+\end{minted} 
+\pause
+\begin{minted}{python}[breaklines]
+my_list.capitalize()
+\end{minted}
+\pause
+\begin{minted}{python}
+>>> AttributeError
+\end{minted} 
+\pause
+\textbf{Why?}
+\textit{'capitalize' is not a method of 'list'}
+\end{frame}
+

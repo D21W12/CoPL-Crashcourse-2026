@@ -1,0 +1,63 @@
+\section{Seperation of Concerns}
+
+\begin{frame}{Separation of Concerns}
+\begin{block}{Separation of Concerns}
+Separation of concerns is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program.
+\end{block}
+\end{frame}
+
+\begin{frame}{Separation of Concerns}
+\begin{itemize}
+    \item One of the most important concepts of OOP! (together with encapsulation).
+    \item Classes separate our program into different parts
+    \item This makes it so that one part of the program does not have to be \textbf{concerned} with another part of our program.
+    \item \textbf{Encapsulation} facilitates this by hiding the implementation of our classes behind well defined interfaces (e.g. getters and setters).
+    \begin{itemize}
+        \pause
+        \item So other classes don't have to be concerned with how a variable is changed or read.
+    \end{itemize}
+    \item \textbf{In a nutshell:} a class should only do what it is designed to do.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why you should use OOP!}
+Why you should know about seperation of concerns and encapsulation.
+\end{frame}
+
+\begin{frame}{Why you should use OOP!}
+Let's say you have a group project, to create a phone book app.
+\begin{itemize}
+    \pause
+    \item You create a \textbf{PhoneBook} class that stores phone numbers.
+    \pause
+    \item You want to be able to add and see phone numbers via the terminal.
+    \pause
+    \item (Following seperation of concerns) you create a different class \textbf{PhoneBookApplication} that handles the input, output, and the loop of your program.
+    \pause
+    \item You also want to maintain a database with all phone numbers (e.g. txt file, CSV file, or MySQL database).
+    \pause
+    \item So, you create another class that interacts with a database \textbf{DatabaseHandler}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why you should use OOP!}
+\begin{itemize}
+    \item Let's assume person A made the PhoneBook class, person B made the PhoneBookApplication class, and person C made the DatabaseHandler class.
+    \pause
+    \item By creating different classes you can divide the work nicely!
+    \pause
+    \item Lets assume all classes have well defined methods.
+    \pause
+    \item For example, the DatabaseHandler has a method save\_to\_database(phonebook).
+    \pause
+    \item Only person C has to be concerned with how this method works, and has to make sure that it saves to a database.
+    \pause
+    \item Person B needs to use this method, but does not need to be \textbf{concerned} with how it works! The implementation is \textbf{encapsulated} behind the method.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why you should use OOP!}
+    \begin{itemize}
+        \item Separation of Concerns and encapsulation makes creating big projects (in groups) way easier!
+    \end{itemize}
+\end{frame}

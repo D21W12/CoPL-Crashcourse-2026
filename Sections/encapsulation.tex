@@ -1,0 +1,159 @@
+\section{Encapsulation}
+
+\begin{frame}{The problem}
+Why do we want to make our data attributes protected or private?
+\begin{itemize}
+    \pause
+    \item Sometimes they contain information that shouldn't be known outside of the class
+    \pause
+    \item \textbf{We want to control how they are changed}
+    \begin{itemize}
+        \pause
+        \item E.g., a student number should always start with a 's' and have 7 numbers.
+        \pause
+        \item A password should contain certain special characters
+    \end{itemize}
+    \pause
+    \item Sometimes you want a data attribute to be able to be read, but not be able to be set. And the other way around.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solution to this problem}
+\textbf{Solution:} we make methods that change our protected and private data attributes (\textbf{setters}) and/or make methods that return the value of our data attribute (\textbf{getters}).
+\pause
+\begin{itemize}
+    \item We '\textbf{encapsulate}' our data attributes with \textit{getters} and/or \textit{setters}.
+    \pause
+    \item \textbf{This is encapsulation!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+    Let's see how we do this in Python!
+\end{frame}
+
+\begin{frame}[fragile]{Making getters and setters}
+\begin{minted}[fontsize=\footnotesize]{python}
+class Student(Person):
+    def __init__(self, first_name, last_name, age, s_number):
+        super().__init__(first_name, last_name, age)
+        self.__s_number = s_number  # Private data attribute
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+    
+    @property  # This is a decorator that indicates its a getter
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+    def s_number(self):  # Note the name
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+        return self.__s_number
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+
+    @s_number.setter  # Decorator for setter
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+    def s_number(self, new_s_number):  # Note the name
+        if new_s_number.startswith("s"):
+            self.__s_number = new_s_number
+        else:
+            raise ValueError
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Making getters and setters}
+\begin{minted}[fontsize=\footnotesize]{python}
+class Student(Person):
+    ...
+    @property  # This is a decorator that indicates its a getter
+    def s_number(self):
+        return self.__s_number
+
+    @s_number.setter  # Decorator for setter
+    def s_number(self, new_s_number):
+        if new_s_number.startswith("s"):
+            self.__s_number = new_s_number
+        else:
+            raise ValueError
+
+student = Student("Daan", "Wichmann", "Secret", "s1234567")
+# Because of the 'property' decorator we can use the getter
+# as if s_number is just a normal data attribute
+print(student.s_number)
+>>> "s1234567"
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Making getters and setters}
+\begin{minted}[fontsize=\footnotesize]{python}
+class Student(Person):
+    ...
+    @property  # This is a decorator that indicates its a getter
+    def s_number(self):
+        return self.__s_number
+
+    @s_number.setter  # Decorator for setter
+    def s_number(self, new_s_number):
+        if new_s_number.startswith("s"):
+            self.__s_number = new_s_number
+        else:
+            raise ValueError
+
+student = Student("Daan", "Wichmann", "Secret", "s1234567")
+student.s_number = 1234567
+print(student.s_number)
+\end{minted}
+What will happen?
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+>>> ValueError
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Making getters and setters}
+\begin{minted}[fontsize=\footnotesize]{python}
+class Student(Person):
+    ...
+    @property  # This is a decorator that indicates its a getter
+    def s_number(self): 
+        return self.__s_number
+
+    @s_number.setter  # Decorator for setter
+    def s_number(self, new_s_number):
+        if new_s_number.startswith("s"):
+            self.__s_number = new_s_number
+        else:
+            raise ValueError
+
+student = Student("Daan", "Wichmann", "Secret", "s1234567")
+student.s_number = s1020425
+print(student.s_number)
+\end{minted}
+\pause
+\begin{minted}[fontsize=\footnotesize]{python}
+>>> "s1020425"
+\end{minted}
+\end{frame}
+
+\begin{frame}{Encapsulation is important}
+\begin{itemize}
+    \item Encapsulation is one of the most important concepts of OOP!
+    \pause
+    \item Make sure to study it from the material, before the exam.
+\end{itemize}
+\pause
+\begin{block}{Encapsulation (definition from the material)}
+    Hiding attributes from clients is called encapsulation. As the name implies, the attribute is "enclosed in a capsule". The client is then offered a suitable interface for accessing and processing the data stored in the object.
+\end{block}
+\pause
+\begin{itemize}
+    \item Client := your program
+    \item The suitable interface that is referred to are the getters and setters
+\end{itemize}
+\end{frame}
