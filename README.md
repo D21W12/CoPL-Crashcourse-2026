@@ -1,6 +1,6 @@
 # CognAC Concepts of Programming Languages Crashcourse
 
-> �� This repository contains the slides I made for the [CognAC](https://svcognac.nl)/[RU](https://www.ru.nl) Concepts of Programming Languages crashcourse I gave in 2025 and 2026.
+> 🎓 This repository contains the slides I made for the [CognAC](https://svcognac.nl)/[RU](https://www.ru.nl) Concepts of Programming Languages crashcourse I gave in 2025 and 2026.
 
 ---
 
